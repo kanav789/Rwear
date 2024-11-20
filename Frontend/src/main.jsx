@@ -14,20 +14,20 @@ import Signup from "./Components/Signup/Signup.jsx";
 // Router
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+  {
     path: "/",
     element: <Layout />,
     children: [
       {
         path: "/home",
         element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/signup",
-        element: <Signup />,
       },
     ],
   },

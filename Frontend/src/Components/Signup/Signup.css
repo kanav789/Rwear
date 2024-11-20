@@ -16,14 +16,14 @@ body {
   width: 90%; /* Responsive for smaller screens */
   max-width: 600px; /* Increased max-width for a wider form */
   background-color: #ffffff;
-  padding: 25px;
+  padding: 0 60px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   margin-top: 10vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 /* Heading Styling */
