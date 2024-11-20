@@ -1,0 +1,158 @@
+.header-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-container .header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #e6e6e6;
+  z-index: 1000;
+  box-shadow: 1px 1px 4px #302f2f;
+  left: 0;
+}
+
+/* Logo */
+.header-container .header .logo {
+  display: flex;
+  align-items: center;
+  font-family: "Playwrite ES", cursive;
+  gap: 10px;
+}
+
+.header-container .header .logo img {
+  width: 60px;
+  position: relative;
+  top: -3px;
+  background: transparent;
+}
+
+.header-container .header .logo h2 {
+  font-size: 22px;
+}
+
+/* Navigation Items */
+.header-container .header .item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-container .header .variety-item {
+  display: flex;
+  gap: 15px;
+}
+
+.header-container .header .variety-item li {
+  font-family: "Playwrite ES", cursive;
+  font-size: 15px;
+  list-style: none;
+}
+
+.header-container .header .variety-item li a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Profile Section */
+.header-container .header .profile {
+  display: flex;
+  gap: 15px;
+}
+
+.header-container .header .profile .cart,
+.header-container .header .profile .profile-icon {
+  width: 30px;
+}
+
+.header-container .header .profile .cart img,
+.header-container .header .profile .profile-icon img {
+  width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 700px) {
+  .header-container .header {
+    height: 14vh;
+    position: fixed;
+    width: 100%;
+    background-color: #e6e6e6;
+    color: #302f2f;
+  }
+
+  .header-container .header .logo {
+    position: fixed;
+    left: 10px;
+  }
+
+  .header-container .hameburger {
+    position: fixed;
+    right: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    top: 6%;
+    z-index: 1001;
+  }
+
+  .header-container .hameburger .one,
+  .header-container .hameburger .two,
+  .header-container .hameburger .three {
+    width: 20px;
+    height: 3px;
+    background-color: #020101;
+    border-radius: 3px;
+  }
+
+  .header-container .item {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #e6e6e6;
+    width: 100%;
+    max-width: 200px;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    padding: 10vh;
+    text-align: center;
+    box-shadow: 1px 1px 8px rgb(198, 196, 196);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .header-container .item #variety-item {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #cdcdcd;
+  }
+
+  .header-container .item #variety-item li a {
+    color: #000000;
+  }
+
+  .header-container .item .profile .cart a {
+    color: white;
+  }
+
+  .header-container .hameburger.active .one {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .header-container .hameburger.active .two {
+    opacity: 0;
+  }
+
+  .header-container .hameburger.active .three {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .header-container .item.active {
+    right: 0;
+  }
+}

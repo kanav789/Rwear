@@ -1,0 +1,35 @@
+.tooltiplogout {
+    background-color: black;
+    visibility: hidden;
+    text-align: center;
+    padding: 3px 3px;
+    position: absolute;
+    bottom: -62%;
+    left: 189%;
+    margin-left: -66px;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 1;
+  
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  
+  .profile-icon {
+    position: relative;
+    display: inline-block;
+  }
+  .profile-icon .tooltiplogout::after {
+    position: absolute;
+    left: 51%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }
+  .profile-icon:hover .tooltiplogout {
+    visibility: visible;
+  }
+  
