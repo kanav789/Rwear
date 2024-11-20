@@ -1,0 +1,116 @@
+/* General Styling */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f3f3f3;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container Styling */
+.register-container {
+  width: 90%; /* Responsive for smaller screens */
+  max-width: 600px; /* Increased max-width for a wider form */
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Heading Styling */
+.register-container h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  text-align: center;
+}
+
+/* Last Paragraph Styling */
+.register-container p:last-of-type {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensures the form takes up the full width of the container */
+  gap: 15px; /* Better spacing between inputs */
+}
+
+/* Input Styling */
+form input {
+  background-color: #fafafa;
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #dcdcdc;
+  outline: none;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+  border-color: #555;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Submit Button Styling */
+form input[type="submit"] {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+form input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 20px;
+    margin-top: 8vh;
+    max-width: 90%; /* Ensures it fits well on smaller devices */
+  }
+
+  .login-container h3 {
+    font-size: 1.6rem;
+  }
+
+  form input {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  form input[type="submit"] {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
