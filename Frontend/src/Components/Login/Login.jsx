@@ -12,7 +12,7 @@ const Login = () => {
         <input type="submit" value="Login" />
       </form>
       <p>
-        Don't have an account? <a href="/register">Sign Up</a>
+        Don't have an account? <a href="/signup">Sign Up</a>
       </p>
     </div>
   );
