@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 const postSchema = mongoose.Schema({
   price: String,
   size: String,
@@ -8,4 +8,3 @@ const postSchema = mongoose.Schema({
   type: String,
 });
 module.exports = mongoose.model("User", userSchema);
-
