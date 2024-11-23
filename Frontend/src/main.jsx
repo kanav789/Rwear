@@ -12,6 +12,7 @@ import Login from "./Components/Login/Login.jsx";
 import Signup from "./Components/Signup/Signup.jsx";
 import Mens from "./Pages/Mens/Mens.jsx";
 import Women from "./Pages/Women/Women.jsx";
+import CardRwears from "./Components/Card/Card.jsx";
 
 // Router
 const router = createBrowserRouter([
