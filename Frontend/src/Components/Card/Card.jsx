@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Card.css";
+import { Link } from "react-router-dom";
 
 const CardRwears = ({ product }) => {
   return (
@@ -10,7 +11,7 @@ const CardRwears = ({ product }) => {
             <img src={item.image} alt="Product Image" />
             <h3>{item.title}</h3>
             <button className="add-to-cart">
-              <a href={`/overCard/${item._id}`}>Check Details</a>
+              <Link to={`/overCard/${item._id}`}>Check Details</Link>
             </button>
           </div>
         ))
