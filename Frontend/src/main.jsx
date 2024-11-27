@@ -13,6 +13,7 @@ import Signup from "./Components/Signup/Signup.jsx";
 import Mens from "./Pages/Mens/Mens.jsx";
 import Women from "./Pages/Women/Women.jsx";
 import CardRwears from "./Components/Card/Card.jsx";
+import Teenguy from "./Pages/Teenguy/TeenGuy.jsx";
 
 // Router
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/women",
         element: <Women />,
+      },
+      {
+        path: "/teenguy",
+        element: <Teenguy />,
       },
     ],
   },
