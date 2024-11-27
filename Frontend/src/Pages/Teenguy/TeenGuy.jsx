@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardRwears from "../../Components/Card/Card";
 import axios from "axios";
-function Women() {
+function Teenguy() {
   const [womens, setWomens] = useState({});
   useEffect(() => {
     const fetchProduct = async () => {
@@ -27,4 +27,4 @@ function Women() {
   );
 }
 
-export default Women;
+export default Teenguy;
