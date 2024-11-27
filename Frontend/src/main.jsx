@@ -14,6 +14,7 @@ import Mens from "./Pages/Mens/Mens.jsx";
 import Women from "./Pages/Women/Women.jsx";
 import CardRwears from "./Components/Card/Card.jsx";
 import Teenguy from "./Pages/Teenguy/TeenGuy.jsx";
+import OverCard from "./Components/OverCard/OverCard.jsx";
 
 // Router
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/teenguy",
         element: <Teenguy />,
+      },
+      {
+        path: "/overCard/:id",
+        element: <OverCard />,
       },
     ],
   },
