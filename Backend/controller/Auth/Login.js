@@ -26,8 +26,7 @@ const Login = async (req, res) => {
     // Generate JWT token
     const token = jwt.sign(
       { email: user.email, userId: user._id },
-      process.env.Secret_key || "defaultSecret", // Use environment variable for the secret
-      { expiresIn: "1h" } // Optional: Set token expiration
+      process.env.Secret_key || "defaultSecret" // Use environment variable for the secret
     );
 
     // Send response
