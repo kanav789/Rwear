@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Header.css"; // Import the header CSS file
 import "./Tooltip.css";
+import { removeToken } from "../../auth/auth.js";
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
 
@@ -43,7 +44,7 @@ const Header = () => {
             <div className="profile-icon">
               <img src="/Images/profileicon.png" alt="Profile Icon" />
               <span className="tooltiplogout">
-                <a href="/logout">LogOut</a>
+                <a onClick={() => removeToken()}>LogOut</a>
               </span>
             </div>
           </div>
