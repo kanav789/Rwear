@@ -12,10 +12,10 @@ import Login from "./Components/Login/Login.jsx";
 import Signup from "./Components/Signup/Signup.jsx";
 import Mens from "./Pages/Mens/Mens.jsx";
 import Women from "./Pages/Women/Women.jsx";
-import CardRwears from "./Components/Card/Card.jsx";
+
 import Teenguy from "./Pages/Teenguy/TeenGuy.jsx";
 import OverCard from "./Components/OverCard/OverCard.jsx";
-
+import Protector from "./Components/ProtectedRoute/Protector.jsx";
 // Router
 const router = createBrowserRouter([
   {
@@ -32,23 +32,43 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/home",
-        element: <Home />,
+        element: (
+          <Protector>
+            <Home />
+          </Protector>
+        ),
       },
       {
         path: "/mens",
-        element: <Mens />,
+        element: (
+          <Protector>
+            <Mens />
+          </Protector>
+        ),
       },
       {
         path: "/women",
-        element: <Women />,
+        element: (
+          <Protector>
+            <Women />
+          </Protector>
+        ),
       },
       {
         path: "/teenguy",
-        element: <Teenguy />,
+        element: (
+          <Protector>
+            <Teenguy />
+          </Protector>
+        ),
       },
       {
         path: "/overCard/:id",
-        element: <OverCard />,
+        element: (
+          <Protector>
+            <OverCard />
+          </Protector>
+        ),
       },
     ],
   },
