@@ -26,11 +26,17 @@ const OverCard = () => {
    fetchProduct();
  }, [id]);
 
- const HandleCart = async (e) => {
+ const AddCartProduct = async (e) => {
    e.preventDefault();
    const token = localStorage.getItem("token");
+
    try {
-     const sendId = await axios.post(
+     if (!token) {
+       return console.log("Please login first");
+     }
+
+     // Send POST request to add the product to the user's cart
+     const response = await axios.post(
        `http://localhost:8080/api/users/product/cart/${product._id}`,
        {},
        {
@@ -39,14 +45,16 @@ const OverCard = () => {
          },
        }
      );
-     if (response) {
-       console.log(response);
-     }
+
+     console.log("Server Response:", response.data); // Log success message and updated cart
    } catch (error) {
-     console.log(error);
+     console.error(
+       "Error adding product to cart:",
+       error.response?.data || error.message
+     );
    }
 
-   console.log("hello", product._id);
+   console.log("Product ID:", product._id);
  };
 
  if (loading) {
@@ -75,7 +83,7 @@ const OverCard = () => {
              action={`/overCard/${product._id}`}
              method="post"
              id="addToCartForm"
-             onSubmit={HandleCart}
+             onSubmit={AddCartProduct}
            >
              <input id="AddToCart" type="submit" value="Add To Cart" />
            </form>
