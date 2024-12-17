@@ -1,116 +1,155 @@
-/* General Styling */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f3f3f3;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  background-color: #f8f8f8; /* Light gray background */
   color: #333;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100vh; /* Center content vertically */
 }
 
 /* Container Styling */
 .register-container {
-  width: 90%; /* Responsive for smaller screens */
-  max-width: 600px; /* Increased max-width for a wider form */
-  background-color: #ffffff;
-  padding: 0 60px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 0 auto;
-  margin-top: 10vh;
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
+  background-color: #fff; /* White card background */
+  padding: 30px 60px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: center;
+  max-width: 400px; /* Card width */
+  margin: 10px; /* Add margin for better spacing on small screens */
 }
 
 /* Heading Styling */
 .register-container h3 {
-  font-size: 1.8rem;
+  font-size: 1.1rem; /* Slightly increase font size */
   font-weight: bold;
   color: #000;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  text-align: center;
-}
-
-/* Last Paragraph Styling */
-.register-container p:last-of-type {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 20px;
-  text-align: center;
+  letter-spacing: 1px;
 }
 
 /* Form Styling */
 form {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Ensures the form takes up the full width of the container */
-  gap: 15px; /* Better spacing between inputs */
+  width: 100%;
+  gap: 12px; /* Add consistent spacing between inputs */
 }
 
-/* Input Styling */
+/* Input Fields */
 form input {
-  background-color: #fafafa;
   width: 100%;
   padding: 12px;
+  border: 1px solid #ccc;
   border-radius: 6px;
-  border: 1px solid #dcdcdc;
-  outline: none;
+  background-color: #f9f9f9;
   font-size: 1rem;
-  color: #333;
+  color: #555;
+  outline: none;
+  margin: 8px 0; /* Adjust margin for consistency */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 form input:focus {
-  border-color: #555;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  border-color: #333; /* Highlight border on focus */
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
 }
 
-/* Submit Button Styling */
+/* Submit Button */
 form input[type="submit"] {
-  background-color: #000;
+  background-color: #000; /* Black background */
   color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
   border-radius: 6px;
   padding: 12px;
-  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 form input[type="submit"]:hover {
-  background-color: #444;
-  transform: scale(1.05);
+  background-color: #333; /* Darker black on hover */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 form input[type="submit"]:active {
-  transform: scale(0.98);
+  transform: scale(0.97); /* Click effect */
+}
+
+/* Footer Link */
+.register-container p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.register-container p a {
+  color: #6a1b9a; /* Stylish purple color */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.register-container p a:hover {
+  color: #4a148c; /* Darker purple on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .login-container {
-    padding: 20px;
-    margin-top: 8vh;
-    max-width: 90%; /* Ensures it fits well on smaller devices */
-  }
-
-  .login-container h3 {
-    font-size: 1.6rem;
+  .register-container {
+    padding: 20px 30px; /* Reduce padding for tablets */
+    max-width: 90%; /* Allow flexibility */
   }
 
   form input {
-    font-size: 0.95rem;
-    padding: 10px;
+    padding: 10px; /* Slightly smaller input padding */
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-container {
+    padding: 15px 20px; /* Compact padding for small devices */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  }
+
+  .register-container h3 {
+    font-size: 1rem; /* Adjust heading size */
+  }
+
+  form input {
+    padding: 8px; /* Smaller padding for inputs */
+    font-size: 0.85rem;
   }
 
   form input[type="submit"] {
-    font-size: 1rem;
-    padding: 10px;
+    padding: 10px; /* Smaller submit button */
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .register-container {
+    padding: 10px; /* Very compact padding for very small screens */
+    margin: 5px; /* Add smaller margin */
+  }
+
+  .register-container h3 {
+    font-size: 0.9rem;
+  }
+
+  form input {
+    padding: 6px; /* Reduce input padding */
+    margin: 5px 0; /* Reduce spacing between inputs */
+  }
+
+  form input[type="submit"] {
+    padding: 8px; /* Compact submit button */
+    font-size: 0.8rem;
   }
 }
