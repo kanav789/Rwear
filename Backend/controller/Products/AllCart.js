@@ -23,13 +23,13 @@ const AllCart = async (req, res) => {
     const CartProduct = await UserModel.findById(decoded.userId).populate(
       "cart"
     );
-    console.log(CartProduct);
-    if (!user) {
+    console.log(CartProduct, "cartproduct by kanav");
+    if (!CartProduct) {
       return res.status(404).json({ message: "User not found" });
     }
 
     // Return the cart items
-    res.status(200).json({ cart: user.cart });
+    res.status(200).json({ cart: CartProduct.cart });
   } catch (error) {
     console.error("Error fetching cart items:", error);
     res.status(500).json({ message: "Server error" });

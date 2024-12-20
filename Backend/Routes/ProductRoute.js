@@ -13,7 +13,7 @@ ProductRouter.get("/womens", WomenProduct);
 ProductRouter.get("/Teenguy", TeenGuy);
 ProductRouter.get("/OverCard/:id", OverCard);
 ProductRouter.post("/product/cart/:productId", AddCart);
-ProductRouter.post("/cart", AllCart);
+ProductRouter.get("/cart", AllCart);
 
 
 
