@@ -4,6 +4,7 @@ const WomenProduct = require("../controller/Products/Womens");
 const TeenGuy = require("../controller/Products/TeenGuy");
 const OverCard = require("../controller/Products/OverCard");
 const AddCart = require("../controller/Products/AddCart");
+const AllCart = require("../controller/Products/AllCart");
 
 const ProductRouter = express.Router();
 
@@ -12,6 +13,8 @@ ProductRouter.get("/womens", WomenProduct);
 ProductRouter.get("/Teenguy", TeenGuy);
 ProductRouter.get("/OverCard/:id", OverCard);
 ProductRouter.post("/product/cart/:productId", AddCart);
+ProductRouter.post("/cart", AllCart);
+
 
 
 
