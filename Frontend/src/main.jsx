@@ -16,6 +16,7 @@ import Women from "./Pages/Women/Women.jsx";
 import Teenguy from "./Pages/Teenguy/TeenGuy.jsx";
 import OverCard from "./Components/OverCard/OverCard.jsx";
 import Protector from "./Components/ProtectedRoute/Protector.jsx";
+import CartSection from "./Components/Cart/CartSection.jsx";
 // Router
 const router = createBrowserRouter([
   {
@@ -67,6 +68,14 @@ const router = createBrowserRouter([
         element: (
           <Protector>
             <OverCard />
+          </Protector>
+        ),
+      },
+      {
+        path: "/cart",
+        element: (
+          <Protector>
+            <CartSection />
           </Protector>
         ),
       },

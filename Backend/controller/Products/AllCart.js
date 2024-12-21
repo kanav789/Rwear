@@ -23,7 +23,7 @@ const AllCart = async (req, res) => {
     const CartProduct = await UserModel.findById(decoded.userId).populate(
       "cart"
     );
-    console.log(CartProduct, "cartproduct by kanav");
+
     if (!CartProduct) {
       return res.status(404).json({ message: "User not found" });
     }
