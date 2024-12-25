@@ -3,6 +3,7 @@ import CardRwears from "../../Components/Card/Card";
 import axios from "axios";
 function Teenguy() {
   const [womens, setWomens] = useState({});
+  const [Loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -13,6 +14,8 @@ function Teenguy() {
         setWomens(response.data.Teenguy);
       } catch (error) {
         console.log(error);
+      }finally{
+        setLoading(false)
       }
     };
     fetchProduct();

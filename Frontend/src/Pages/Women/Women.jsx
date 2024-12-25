@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import CardRwears from "../../Components/Card/Card";
 import axios from "axios";
+import Loader from "../../Components/Loader/Loader";
 function Women() {
   const [womens, setWomens] = useState({});
+  const [Loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -13,10 +15,15 @@ function Women() {
         setWomens(response.data.women);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchProduct();
   }, []);
+  if (Loading) {
+    return <Loader />;
+  }
 
   return (
     <div>
