@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import Loader from "../Loader/Loader";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const { loading, setLoading } = useState(true);
 
   const navigate = useNavigate();
 
@@ -35,9 +36,14 @@ const Login = () => {
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className="login-container">
       <h3>Login</h3>

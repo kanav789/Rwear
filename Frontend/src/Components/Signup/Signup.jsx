@@ -3,13 +3,13 @@ import "./Signup.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import Loader from "../Loader/Loader";
 const Signup = () => {
   const [name, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const { loading, setLoading } = useState(true);
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -38,9 +38,14 @@ const Signup = () => {
         setError("An unexpected error occurred. Please try again.");
       }
       console.log(err);
+    } finally {
+      setLoading(false);
     }
   };
 
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className="register-container">
       <h3>Register</h3>
