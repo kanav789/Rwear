@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./overCard.css";
 import { toast } from "react-toastify";
+import Loader from "../Loader/Loader";
 
 const OverCard = () => {
   const { id } = useParams(); // Get product ID from URL
@@ -68,7 +69,7 @@ const OverCard = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   if (!product) {

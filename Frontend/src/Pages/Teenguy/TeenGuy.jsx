@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardRwears from "../../Components/Card/Card";
 import axios from "axios";
+import Loader from "../../Components/Loader/Loader";
 function Teenguy() {
   const [womens, setWomens] = useState({});
   const [Loading, setLoading] = useState(true);
@@ -14,13 +15,13 @@ function Teenguy() {
         setWomens(response.data.Teenguy);
       } catch (error) {
         console.log(error);
-      }finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     };
     fetchProduct();
   }, []);
-
+  if (Loading) return <Loader />;
   return (
     <div>
       <div className="Teenguys">

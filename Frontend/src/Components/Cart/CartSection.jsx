@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./CartSection.css";
 import { toast } from "react-toastify";
+import Loader from "../Loader/Loader";
 const CartSection = () => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -66,7 +67,7 @@ const CartSection = () => {
   };
 
   if (loading) {
-    return <p className="loading">Loading your cart...</p>;
+    return <Loader />;
   }
 
   return (
