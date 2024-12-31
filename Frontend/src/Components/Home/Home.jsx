@@ -4,6 +4,7 @@ import Loader from "../Loader/Loader";
 import axios from "axios";
 
 import "./Home.css";
+import Footer from "../Footer/Footer";
 function Home() {
   const [mens, setMens] = useState({});
   const [loading, setLoading] = useState(true); // Loader state
@@ -61,6 +62,8 @@ function Home() {
 
         <CardRwears product={womens} className="products" />
       </div>
+
+      <Footer />
     </div>
   );
 }
