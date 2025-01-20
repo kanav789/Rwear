@@ -27,11 +27,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.use(express.static("./Frontend/dist"));
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "Frontend", "dist", "index.html"));
-});
-
 
 
 // Start the server
