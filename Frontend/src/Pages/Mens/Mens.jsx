@@ -5,13 +5,14 @@ import Loader from "../../Components/Loader/Loader";
 
 function Mens() {
   const [mens, setMens] = useState({});
-  const [loading, setLoading] = useState(true); // Loader state
+  const [loading, setLoading] = useState(false); // Loader state
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
+        setLoading(true); // Start loader before fetching
         const response = await axios.get(
-          "http://localhost:8080/api/users/mens"
+          `${import.meta.env.VITE_BASEURL}/api/users/mens`
         );
         console.log(response.data.mens);
         setMens(response.data.mens);

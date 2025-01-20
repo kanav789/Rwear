@@ -9,7 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { loading, setLoading } = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,17 +18,19 @@ const Login = () => {
     setError("");
 
     try {
+      setLoading(true);
       let token = localStorage.getItem("token");
       if (token) {
         return setError("User is already login");
       }
       const response = await axios.post(
-        "http://localhost:8080/api/users/login",
+        `${import.meta.env.VITE_BASEURL}/api/users/login`,
         {
           email,
           password,
         }
       );
+      console.log(token);
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
         toast.success("Login Successfully");

@@ -13,7 +13,7 @@ function Home() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/users/mens"
+          `${import.meta.env.VITE_BASEURL}/api/users/mens`
         );
         console.log(response.data.mens);
         setMens(response.data.mens);
@@ -32,8 +32,9 @@ function Home() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
-          "http://localhost:8080/api/users/womens"
+          `${import.meta.env.VITE_BASEURL}/api/users/womens`
         );
         console.log(response.data.women);
         setWomens(response.data.women);

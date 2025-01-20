@@ -19,7 +19,7 @@ const CartSection = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/users/cart",
+          `${import.meta.env.VITE_BASEURL}/api/users/cart  `,
           {
             headers: {
               Authorization: `Bearer ${token}`, // Include the token in the Authorization header

@@ -9,7 +9,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const { loading, setLoading } = useState(true);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
@@ -17,8 +17,9 @@ const Signup = () => {
     setError("");
 
     try {
+      setLoading(true);
       const response = await axios.post(
-        "http://localhost:8080/api/users/signup",
+        `${import.meta.env.VITE_BASEURL}/api/users/signup`,
         {
           name,
           email,

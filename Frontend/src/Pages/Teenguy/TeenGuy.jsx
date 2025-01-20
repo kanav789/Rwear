@@ -9,7 +9,7 @@ function Teenguy() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/api/users/Teenguy"
+          `${import.meta.env.VITE_BASEURL}/api/users/Teenguy`
         );
         console.log(response.data.Teenguy);
         setWomens(response.data.Teenguy);

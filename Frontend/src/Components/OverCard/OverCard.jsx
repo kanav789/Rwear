@@ -14,7 +14,7 @@ const OverCard = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/users/overcard/${id}`
+          ` ${import.meta.env.VITE_BASEURL}/api/users/overcard/${id}`
         );
 
         setProduct(response.data.post);
