@@ -9,7 +9,7 @@ function DatabaseConnected() {
       console.log("DataBase is connected");
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err, "err");
     });
 }
 module.exports = DatabaseConnected;
