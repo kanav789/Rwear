@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "./overCard.css";
+import "./OverCard.css";
 import { toast } from "react-toastify";
 import Loader from "../Loader/Loader";
 
