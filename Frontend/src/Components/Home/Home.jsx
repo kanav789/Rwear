@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import CardRwears from "../Card/Card";
 import Loader from "../Loader/Loader";
 import axios from "axios";
-
-import "./Home.css";
 import Footer from "../Footer/Footer";
+
 function Home() {
   const [mens, setMens] = useState({});
   const [loading, setLoading] = useState(true); // Loader state
@@ -52,19 +51,19 @@ function Home() {
   return (
     <div>
       <div className="TrendingSectionForMen">
-        <h1>Trending Section For Men</h1>
-
+        <h1 className="flex justify-center mt-[20vh] text-[30px] font-extrabold">
+          MensTrendingSection
+        </h1>
         <CardRwears product={mens} className="products" />
       </div>
-
       {/* women  */}
       <div className="TrendingSectionForWomen">
-        <h1>Trending Section For Women</h1>
+        <h1 className="flex justify-center mt-10 text-[30px] font-extrabold">
+          MensTrendingSection
+        </h1>
 
         <CardRwears product={womens} className="products" />
       </div>
-
-      <Footer />
     </div>
   );
 }
