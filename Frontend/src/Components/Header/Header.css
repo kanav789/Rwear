@@ -33,7 +33,8 @@
 }
 
 .header-container .header .logo h2 {
-  font-size: 22px;
+  font-size: 25px;
+  font-weight: bolder;
 }
 
 /* Navigation Items */
@@ -50,7 +51,7 @@
 
 .header-container .header .variety-item li {
   font-family: "Playwrite ES", cursive;
-  font-size: 15px;
+  font-size: 20px;
   list-style: none;
 }
 
