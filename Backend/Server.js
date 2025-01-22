@@ -4,6 +4,7 @@ const DatabaseConnected = require("./config.js");
 const app = express();
 const cors = require("cors");
 const ProductRouter = require("./Routes/ProductRoute.js");
+const adminRouter = require("./Routes/Admin.js");
 
 // Connect to the database
 DatabaseConnected();
@@ -15,8 +16,9 @@ app.use(cors());
 // Define routes
 app.use("/api/users", userRouter);
 
-
 app.use("/api/users", ProductRouter);
+
+app.use("/api", adminRouter);
 
 
 const PORT = process.env.PORT || 3000;
