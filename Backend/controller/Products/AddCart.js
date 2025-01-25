@@ -14,16 +14,20 @@ const AddCart = async (req, res) => {
     }
 
     const token = authHeader.split(" ")[1];
+   
     if (!token) {
       return res.status(401).json({ message: "Unauthorized: access " });
     }
 
     // Verify and decode the token
-    const decoded = jwt.verify(token, process.env.Secret_key);
+    const decoded = jwt.verify(
+      token,
+      process.env.Secret_key || "defaultSecret"
+    );
 
     // Find user by ID from the decoded token
     const user = await UserModel.findById(decoded.userId);
-
+    console.log(user);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -40,6 +44,7 @@ const AddCart = async (req, res) => {
 
     // Send response back to frontend
     res.status(200).json({ message: "Product added to cart", cart: user.cart });
+    console.log("product added to cart");
   } catch (error) {
     console.error("Error adding product to cart:", error);
     return res.status(500).json({ message: "Server error" });
