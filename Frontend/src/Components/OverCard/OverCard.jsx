@@ -44,7 +44,9 @@ const OverCard = () => {
 
       // Send POST request to add the product to the user's cart
       const response = await axios.post(
-        `http://localhost:8080/api/users/product/cart/${product._id}`,
+        ` ${import.meta.env.VITE_BASEURL}/api/users/product/cart/${
+          product._id
+        }`,
         {},
         {
           headers: {
