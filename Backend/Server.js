@@ -5,6 +5,7 @@ const app = express();
 const cors = require("cors");
 const ProductRouter = require("./Routes/ProductRoute.js");
 const adminRouter = require("./Routes/Admin.js");
+const PaymentRouter = require("./Routes/Payment.js");
 
 // Connect to the database
 DatabaseConnected();
@@ -19,7 +20,7 @@ app.use("/api/users", userRouter);
 app.use("/api/users", ProductRouter);
 
 app.use("/api", adminRouter);
-
+app.use("/api/checkout", PaymentRouter);
 
 const PORT = process.env.PORT || 3000;
 
