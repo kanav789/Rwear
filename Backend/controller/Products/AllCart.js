@@ -12,12 +12,16 @@ const AllCart = async (req, res) => {
     }
 
     const token = authHeader.split(" ")[1];
+    console.log(token);
     if (!token) {
       return res.status(401).json({ message: "Unauthorized: Access" });
     }
 
     // Verify and decode the token
-    const decoded = jwt.verify(token, process.env.Secret_key);
+    const decoded = jwt.verify(
+      token,
+      process.env.Secret_key || "defaultSecret"
+    );
 
     // Find user by ID from the decoded token
     const CartProduct = await UserModel.findById(decoded.userId).populate(
