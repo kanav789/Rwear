@@ -3,10 +3,12 @@ import "./Header.css"; // Import the header CSS file
 import "./Tooltip.css";
 import { removeToken } from "../../auth/auth.js";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
 
   // Handle hamburger menu toggle
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setMenuActive(!menuActive);
   };
@@ -48,7 +50,9 @@ const Header = () => {
             <div className="profile-icon">
               <img src="/Images/profileicon.png" alt="Profile Icon" />
               <span className="tooltiplogout">
-                <a onClick={() => removeToken()}>LogOut</a>
+                <Link onClick={() => removeToken()} to="/login">
+                  LogOut
+                </Link>
               </span>
             </div>
           </div>
