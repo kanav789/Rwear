@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Header.css"; // Import the header CSS file
 import "./Tooltip.css";
 import { removeToken } from "../../auth/auth.js";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
 
@@ -17,7 +18,10 @@ const Header = () => {
         {/* Logo */}
         <div className="logo">
           <img src="/Images/headericon.png" alt="RwEaRs Logo" />
-          <h2>RwEaRs</h2>
+
+          <Link to="/">
+            <h2>RwEaRs</h2>
+          </Link>
         </div>
 
         {/* Navigation Items */}
