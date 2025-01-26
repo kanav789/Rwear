@@ -78,33 +78,93 @@ const OverCard = () => {
     return <p>Product not found.</p>;
   }
 
-  return (
-    <div className="OverCard-container">
-      {/* Section */}
-      <div className="section">
-        <div className="image">
-          <img src={product.image} alt="Product" />
-        </div>
-        <div className="information">
-          <h2>{product.title}</h2>
-          <h2>Price: ₹{product.price}</h2>
-          <h2>Discount: {product.discount}</h2>
-          <h4>Size: {product.size}</h4>
 
-          <div className="button">
-            <form
-              action={`/overCard/${product._id}`}
-              method="post"
-              id="addToCartForm"
-              onSubmit={AddCartProduct}
-            >
-              <input id="AddToCart" type="submit" value="Add To Cart" />
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+   const checkout = async (id, price) => {
+     try {
+       const result = await axios.post(
+         `${import.meta.env.VITE_BASEURL}/api/checkout/create-order`,
+         {
+           amount: price,
+         }
+       );
+       console.log(result);
+
+       const order = result.data.order;
+       //  const order = await result.order;
+       console.log(order, "order");
+
+       const options = {
+         key: "rzp_test_H8tZtmny8n80nM",
+         amount: order.amount,
+         currency: order.currency,
+         name: "Rwear",
+         description: "Purchase Product",
+         image:
+           "https://avatars.githubusercontent.com/u/106293653?s=400&u=303436d211b34380b07e9be3e3175e8b604cc0b4&v=4o",
+
+         handler: function (response) {
+           alert(
+             `Payment successful. Payment ID: ${response.razorpay_payment_id}`
+           );
+           // You can now verify the payment on your backend
+         },
+         prefill: {
+           name: "Customer Name",
+           email: "customer@example.com",
+           contact: "9999999999",
+         },
+         notes: {
+           address: "Customer Address",
+         },
+         theme: {
+           color: "#3399cc",
+         },
+       };
+
+       const razorpay = new window.Razorpay(options);
+       razorpay.open();
+     } catch (error) {
+       console.log("Error creating order:", error);
+       toast.error("Failed to create order. Please try again.");
+     }
+   };
+
+   return (
+     <div className="OverCard-container">
+       {/* Section */}
+       <div className="section">
+         <div className="image">
+           <img src={product.image} alt="Product" />
+         </div>
+         <div className="information">
+           <h2>{product.title}</h2>
+           <h2>Price: ₹{product.price}</h2>
+           <h2>Discount: {product.discount}</h2>
+           <h4>Size: {product.size}</h4>
+
+           <div className="button">
+             <form
+               action={`/overCard/${product._id}`}
+               method="post"
+               id="addToCartForm"
+               onSubmit={AddCartProduct}
+             >
+               <input id="AddToCart" type="submit" value="Add To Cart" />
+             </form>
+           </div>
+           <div className="Paynow">
+             <button
+               onClick={() => {
+                 checkout(product._id, product.price);
+               }}
+             >
+               Pay Now
+             </button>
+           </div>
+         </div>
+       </div>
+     </div>
+   );
 };
 
 export default OverCard;

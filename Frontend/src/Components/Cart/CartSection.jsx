@@ -3,6 +3,7 @@ import axios from "axios";
 import "./CartSection.css";
 import { toast } from "react-toastify";
 import Loader from "../Loader/Loader";
+
 const CartSection = () => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -65,6 +66,55 @@ const CartSection = () => {
       console.error("Error deleting cart item:", error);
     }
   };
+  const checkout = async (id, price) => {
+    try {
+      const result = await axios.post(
+        `${import.meta.env.VITE_BASEURL}/api/checkout/create-order`,
+        {
+          amount: price,
+        }
+      );
+      console.log(result);
+
+      const order = result.data.order;
+      //  const order = await result.order;
+      console.log(order, "order");
+
+      const options = {
+        key: "rzp_test_H8tZtmny8n80nM",
+        amount: order.amount,
+        currency: order.currency,
+        name: "Rwear",
+        description: "Purchase Product",
+        image:
+          "https://avatars.githubusercontent.com/u/106293653?s=400&u=303436d211b34380b07e9be3e3175e8b604cc0b4&v=4o",
+
+        handler: function (response) {
+          alert(
+            `Payment successful. Payment ID: ${response.razorpay_payment_id}`
+          );
+          // You can now verify the payment on your backend
+        },
+        prefill: {
+          name: "Customer Name",
+          email: "customer@example.com",
+          contact: "9999999999",
+        },
+        notes: {
+          address: "Customer Address",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+    } catch (error) {
+      console.log("Error creating order:", error);
+      toast.error("Failed to create order. Please try again.");
+    }
+  };
 
   if (loading) {
     return <Loader />;
@@ -88,12 +138,23 @@ const CartSection = () => {
                 <h2>{item.title}</h2>
                 <h6>Price: ₹{item.price}</h6>
                 <h6>Size: {item.size}</h6>
-                <button
-                  onClick={() => DeleteCart(item._id)}
-                  className="delete-item-btn"
-                >
-                  Delete
-                </button>
+                <div className="flex gap-5">
+                  <button
+                    onClick={() => DeleteCart(item._id)}
+                    className="delete-item-btn"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    className="pay-now-btn"
+                    onClick={() => {
+                      checkout(item._id, item.price);
+                      // console.log(item.price);
+                    }}
+                  >
+                    Pay Now
+                  </button>
+                </div>
               </div>
             </div>
           ))}

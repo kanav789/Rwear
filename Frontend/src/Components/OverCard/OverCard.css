@@ -56,7 +56,30 @@
   .button input:hover {
     background-color: #302e2e;
   }
+  .Paynow  {
+    margin: 0 auto;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+   display: flex;
+   justify-content: center;
+   padding: 12px 30px;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+   font-size: 1.1rem;
+   border: none;
+   font-family: "Geist Mono", monospace;
+   width: 50%;
+
+  }
   
+  .Paynow:hover {
+    padding: 12px 32px;
+    width: 100%;
+    background-color: #302e2e;
+   transition: width 0.4s ease;
+
+  }
   @media (max-width: 768px) {
     .section {
       flex-direction: column;
