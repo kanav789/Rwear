@@ -28,7 +28,7 @@
     
   /* Information Styling */
   .information{
-    font-family: "Geist Mono", monospace;
+    font-weight: 600;
   }
   
   .information p{

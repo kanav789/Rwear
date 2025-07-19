@@ -11,26 +11,26 @@ const OverCard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const response = await axios.get(
-          ` ${import.meta.env.VITE_BASEURL}/api/users/overcard/${id}`
-        );
-
-        setProduct(response.data.post);
-        setLoading(false);
-
-        toast.success("Product details loaded successfully!");
-      } catch (error) {
-        console.error("Error fetching product details:", error);
-        setLoading(false);
-
-        toast.error("Failed to load product details.");
-      }
-    };
-
     fetchProduct();
   }, [id]);
+  const fetchProduct = async () => {
+    try {
+      const response = await axios.get(
+        ` ${import.meta.env.VITE_BASEURL}/api/users/overcard/${id}`
+      );
+
+      setProduct(response.data.post);
+      setLoading(false);
+      if (response.data.post) {
+        toast.success("Product details loaded successfully!");
+      }
+    } catch (error) {
+      console.error("Error fetching product details:", error);
+      setLoading(false);
+
+      toast.error("Failed to load product details.");
+    }
+  };
 
   const AddCartProduct = async (e) => {
     e.preventDefault();
