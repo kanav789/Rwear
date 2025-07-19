@@ -98,6 +98,7 @@
     flex-direction: column;
     gap: 3px;
     top: 6%;
+    cursor: pointer;
     z-index: 1001;
   }
 

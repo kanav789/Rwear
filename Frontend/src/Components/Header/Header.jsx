@@ -4,11 +4,26 @@ import "./Tooltip.css";
 import { removeToken } from "../../auth/auth.js";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Popover } from "antd";
+
 const Header = () => {
   const [menuActive, setMenuActive] = useState(false);
 
   // Handle hamburger menu toggle
   const navigate = useNavigate();
+
+  const content = (
+    <div>
+      <button
+        className="text-[10px] text-medium px-3 py-1 rounded-sm bg-black text-white"
+        onClick={() => {
+          removeToken(), navigate("/login");
+        }}
+      >
+        LogOut
+      </button>
+    </div>
+  );
   const toggleMenu = () => {
     setMenuActive(!menuActive);
   };
@@ -30,13 +45,13 @@ const Header = () => {
         <div className={`item ${menuActive ? "active" : ""}`} id="item">
           <div className="variety-item" id="variety-item">
             <li>
-              <a href="/mens">Men</a>
+              <Link to="/mens">Men</Link>
             </li>
             <li>
-              <a href="/women">Women</a>
+              <Link to="/women">Women</Link>
             </li>
             <li>
-              <a href="/teenguy">TeenGuy</a>
+              <Link to="/teenguy">TeenGuy</Link>
             </li>
           </div>
 
@@ -48,12 +63,13 @@ const Header = () => {
               </a>
             </div>
             <div className="profile-icon">
-              <img src="/Images/profileicon.png" alt="Profile Icon" />
-              <span className="tooltiplogout">
-                <Link onClick={() => removeToken()} to="/login">
-                  LogOut
-                </Link>
-              </span>
+              <Popover
+                content={content}
+                trigger="click"
+                className="cursor-pointer"
+              >
+                <img src="/Images/profileicon.png" alt="Profile Icon" />
+              </Popover>
             </div>
           </div>
         </div>
@@ -61,7 +77,7 @@ const Header = () => {
 
       {/* Hamburger Menu */}
       <div
-        className={`hameburger ${menuActive ? "active" : ""}`}
+        className={`hameburger ${menuActive ? "active" : ""} cursor-pointer`}
         id="hameburger"
         onClick={toggleMenu}
       >
