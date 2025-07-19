@@ -51,16 +51,20 @@ function Home() {
   return (
     <div>
       <div className="TrendingSectionForMen">
-        <h1 className="flex justify-center mt-[20vh] text-[30px] font-extrabold">
-          MensTrendingSection
-        </h1>
+        <div className="flex">
+          <h1 className="flex justify-center mt-[20vh] text-[30px] font-medium font-sans pl-10 sm:pl-0">
+            MensTrendingSection
+          </h1>
+        </div>
         <CardRwears product={mens} className="products" />
       </div>
       {/* women  */}
       <div className="TrendingSectionForWomen">
-        <h1 className="flex justify-center mt-10 text-[30px] font-extrabold">
-          MensTrendingSection
-        </h1>
+        <div className="flex ">
+          <h1 className="flex justify-center mt-10 text-[30px] font-medium font-sans pl-10 sm:pl-0">
+            WomensTrendingSection
+          </h1>
+        </div>
 
         <CardRwears product={womens} className="products" />
       </div>

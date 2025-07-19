@@ -9,7 +9,11 @@ const CardRwears = ({ product }) => {
         product.map((item) => (
           <div className="card" key={item._id}>
             <img src={item.image} alt="Product Image" />
-            <h3>{item.title}</h3>
+            <h3>
+              {item.title.length > 20
+                ? item.title.slice(0, 20) + "..."
+                : item.title}
+            </h3>
             <button className="add-to-cart">
               <Link to={`/overCard/${item._id}`}>Check Details</Link>
             </button>
