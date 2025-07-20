@@ -122,7 +122,7 @@ const CartSection = () => {
 
   return (
     <div className="cart-container">
-      <h1 className="cart-title">Your Cart</h1>
+      <h1 className="mt-10 text-center text-[25px]">Your Cart</h1>
       {cartItems.length === 0 ? (
         <h5 className="empty-cart">Your cart is empty.</h5>
       ) : (

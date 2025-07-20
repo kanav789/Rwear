@@ -58,9 +58,9 @@ const Header = () => {
           {/* Profile Section */}
           <div className="profile">
             <div className="cart">
-              <a href="/cart">
+              <Link to="/cart">
                 <img src="/Images/cart.png" alt="Cart Icon" />
-              </a>
+              </Link>
             </div>
             <div className="profile-icon">
               <Popover
